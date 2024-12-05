@@ -13,6 +13,7 @@ int main() {
     std::vector<std::string>(list1);
     std::vector<std::string>(list2);
     
+    
     //separate the rows in two files
     std::ifstream inputFile("Input.txt");
     std::ofstream col1File("col1.txt");
@@ -34,7 +35,7 @@ int main() {
     inputFile.close();
     col1File.close();
     col2File.close();
-    
+     
     sort(list1.begin(),list1.end());
     sort(list2.begin(),list2.end());
     
@@ -70,5 +71,30 @@ int main() {
     }
     std::cout<<"-------------------"<<std::endl;
     std::cout<<"the sum is "<<sum<<std::endl;
+    
+    
+    std::cout<<">-----------PART 2----------<"<<std::endl;
+    int appearing = 0;
+    int similarityScore = 0;
+    std::vector<int> (SCList);
+    for(auto it1 = list1.begin(); it1 != list1.end(); it1++){
+        int value1 = std::stoi(*it1);
+        for(auto it2 = list2.begin(); it2 != list2.end(); it2++){
+            int value2 = std::stoi(*it2);
+            if(value1 == value2){
+                appearing ++;
+
+            }
+        }
+        similarityScore = value1 * appearing;
+        SCList.push_back(similarityScore);
+        similarityScore = 0;
+        appearing = 0;
+    }
+    int sumOfScore = 0;
+    for(auto & i : SCList){
+        sumOfScore += i;
+    }
+    std::cout<<"The Sum of Similarity Score: "<<sumOfScore<<std::endl;
 }
 
