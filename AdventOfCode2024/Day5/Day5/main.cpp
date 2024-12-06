@@ -11,23 +11,23 @@
 #include <unordered_set>
 using namespace std;
 
-unordered_map<int, unordered_set<int>>(nums);
+unordered_map<int, unordered_set<int>>(pairs);
 
 bool isLess(int x, int y){
-    if(nums[x].find(y) != nums[x].end()){
+    if(pairs[x].find(y) != pairs[x].end()){
         return true;
     }else return false;
 }
 
 int main() {
-    nums.clear();
+    pairs.clear();
     ifstream inputFile("Input.txt");
     string line;
     
     while(getline(inputFile,line) && !line.empty()){
         int num1 = stoi(line.substr(0,2));
         int num2 = stoi(line.substr(3,2));
-        nums[num1].insert(num2);
+        pairs[num1].insert(num2);
     }
     
     int sum = 0;
