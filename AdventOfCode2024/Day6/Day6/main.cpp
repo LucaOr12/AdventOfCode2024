@@ -119,7 +119,7 @@ Position StartingPos(const vector<string>& map){
 
 
 long long posToStuck(vector<string>& map){//for part 2
-    long long answer = 0;
+    long long stuckAns = 0;
     long long alias = 0;
     
     Position start_pos = StartingPos(map);
@@ -133,11 +133,11 @@ long long posToStuck(vector<string>& map){//for part 2
         
         std::map<Position, std::set<Directions>> all_state;
         if(isLooping(map, all_state, start_pos, Directions::up)){
-            ++answer;
+            ++stuckAns;
         }
         map[position.x][position.y] = '.';
     }
-    return answer;
+    return stuckAns;
 }
 
 
