@@ -123,10 +123,10 @@ long long posToStuck(vector<string>& map){//for part 2
     long long alias = 0;
     
     Position start_pos = StartingPos(map);
-    std::vector<std::vector<bool>> is_visited (map.size(), std::vector<bool>(map[0].size()));
+    std::vector<std::vector<bool>> isVisited (map.size(), std::vector<bool>(map[0].size()));
     std::vector<Position> point_passed;
     
-    guardMove(alias, map, is_visited, start_pos, Directions::up, point_passed);
+    guardMove(alias, map, isVisited, start_pos, Directions::up, point_passed);
     
     for(auto position : point_passed){
         map[position.x][position.y] = '#';
